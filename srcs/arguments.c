@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:38:05 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/06 16:26:46 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/07 19:17:44 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	ft_checkandstock(t_list **numlst, int ac, char **av)
 		return (0);
 	if (ac == 2)
 	{
-		splitav = ft_split(&av[1], ' ');
+		splitav = ft_split(av[1], ' ');
 		if (!splitav)
 		{
 			write(stderr, "Error\n", 6);

@@ -92,3 +92,17 @@ int	ft_findmax(t_list **lst)
 		tmp = tmp->next;
 	}
 }
+
+int	ft_lstcheck(t_list *lst)
+{
+	t_list	*first;
+
+	first = lst;
+	while (lst && lst->next != first)
+	{
+		if (lst->content > lst->next->content)
+			return (0);
+		lst = lst->next;
+	}
+	return (1);
+}

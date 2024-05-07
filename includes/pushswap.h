@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:09:35 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/06 16:25:53 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/07 19:33:33 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_list
 typedef struct s_listandsize
 {
 	int				size;
-	struct s_list	**list;
+	struct s_list	*list;
 }					t_ls;
 
 void				ft_lstadd_back(t_list **lst, t_list *new);
@@ -56,5 +56,7 @@ int					ft_ordandop(t_list **alist, t_list **blist, t_list **olist,
 						t_i i);
 char				**ft_split(char const *s, char c);
 int					ft_instlist(t_list **inst);
+int					ft_lstcheck(t_list *lst);
+void				ft_lsinit(t_ls *list);
 
 #endif

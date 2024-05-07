@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:21:41 by marvin            #+#    #+#             */
-/*   Updated: 2024/05/06 17:23:30 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/07 19:20:23 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,10 @@ void	ft_init(int	num[5], int firstnum)
 	num[max] = firstnum;
 }
 
-void	ft_lsinit(t_ls *list)
+void	ft_lsinit(t_ls *list, t_list *content, size_t size)
 {
-	t_list	*tmp;
-	tmp = 0;
-	list->list = &tmp;
-	list->size = 0;
+	list->list = content;
+	list->size = size;
 }
 
 int	ft_abs(int num)
@@ -101,15 +99,17 @@ void	ft_setnum(int *num, t_list *alist, t_list *blist, int index)
 	
 }
 
-int ft_tmp(t_list **alist, t_list **olist, int size)
+int ft_tmp(t_list *numlist, t_list *olist, int size)
 {
 	t_ls	*blist;
+	t_ls	*alist;
 	int		num[5];
 
-	ft_lsinit(blist);
+	ft_lsinit(blist, 0, 0);
+	ft_lsinit(alist, numlist, size);
 	ft_ordandop(alist, blist->list, olist, pa);
 	ft_init(num, (*blist->list)->content);
-	while (*alist)
+	while (alist->size > 3)
 	{
 		while (num[index] < size && (num[index] == 0 || ft_abs(ft_returnnum(num[index], size)) < num[bestrequired]))
 		{
