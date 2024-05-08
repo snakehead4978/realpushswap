@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:09:35 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/07 19:33:33 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/08 20:04:31 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,17 @@ typedef enum s_i
 	rrr
 }					t_i;
 
+typedef enum s_nums
+{
+	index,
+	bestindex,
+	bestrequired,
+	bestcosta,
+	bestcostb,
+	min,
+	max
+}					t_nums;
+
 typedef struct s_list
 {
 	int				content;
@@ -51,12 +62,18 @@ void				ft_lstclear(t_list **lst);
 int					ft_psfree(void *a, void *b, t_list **lst);
 int					ft_checkandstock(t_list **numlst, int ac, char **av);
 int					ft_addorder(t_list **node, t_i i);
-void				ft_operate(t_list **a, t_list **b, t_i c);
-int					ft_ordandop(t_list **alist, t_list **blist, t_list **olist,
+void				ft_operate(t_ls *a, t_ls *b, t_i c);
+int					ft_ordandop(t_ls *alist, t_ls *blist, t_list **olist,
 						t_i i);
 char				**ft_split(char const *s, char c);
 int					ft_instlist(t_list **inst);
 int					ft_lstcheck(t_list *lst);
-void				ft_lsinit(t_ls *list);
+int					ft_lsinit(t_ls *list, t_list *content, int size);
+int					ft_algo(t_list *numlist, t_list **olist, int size);
+int					ft_runnum(t_ls *alist, t_ls *blist, t_list **olist,
+						int *nums);
+int					ft_lstsize(t_list *lst);
+int					sort3(t_ls *alst, t_list **olst);
+void					ft_init(int num[7], t_ls *list);
 
 #endif

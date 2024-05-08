@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:16:12 by snek              #+#    #+#             */
-/*   Updated: 2024/05/07 20:03:23 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/08 19:58:45 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,22 @@ static void	ft_push(t_ls *lsta, t_ls *lstb)
 	t_list	*tmp;
 
 	tmp = lsta->list;
+	if (!lsta->list)
+		return ;
 	if (lsta->list->next && lsta->list->next != lsta->list)
 	{
 		lsta->list->previous->next = lsta->list->next;
-		(*lsta)->next->previous = (*lsta)->previous;
-		*lsta = (*lsta)->next;
+		lsta->list->next->previous = lsta->list->previous;
+		lsta->list = lsta->list->next;
 	}
 	else
-		*lsta = 0;
-	ft_lstadd_back(&lstb, tmp);
+		lsta->list = 0;
+	lsta->size--;
+	lstb->size++;
+	ft_lstadd_back(&lstb->list, tmp);
 }
 
-void	ft_operate(t_ls *a, t_ls *b, t_i	c)
+void	ft_operate(t_ls *a, t_ls *b, t_i c)
 {
 	if (c == sa)
 		ft_swap(a);

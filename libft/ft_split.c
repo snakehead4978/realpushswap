@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:27:13 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/06 16:08:48 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:01:21 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,14 +87,3 @@ char	**ft_split(char const *s, char c)
 	res[index[2]] = 0;
 	return (res);
 }
-
-// int main(int ac, char **av)
-// {
-// 	if (ac != 3)
-// 		return 0;
-// 	char **c = ft_split(av[1], av[2][0]);
-// 	int i = 0;
-// 	while (i <= 2)
-// 		printf("%s\n", c[i++]);
-// 	return 0;
-// }

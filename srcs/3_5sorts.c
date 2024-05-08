@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:07:36 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/05 18:11:08 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/08 19:45:12 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ft_findcase(t_list *node)
 		return (5);
 }
 
-void	sort3(t_list **nlst, t_list **olst)
+int	sort3(t_ls *alst, t_list **olst)
 {
 	int	a;
 	int	check;
@@ -55,13 +55,13 @@ void	sort3(t_list **nlst, t_list **olst)
 	return (1);
 }
 
-void	sort5(t_list **nlst, t_list **olst, int	size)
-{
-	t_list	*bstack;
-	t_list	*new;
+// void	sort5(t_list **nlst, t_list **olst, int	size)
+// {
+// 	t_list	*bstack;
+// 	t_list	*new;
 
-	bstack = 0;
-	while (size-- > 3)
-		ft_ordandop(nlst, bstack, olst, pa);
-	sort3(nlst, olst);
-}
+// 	bstack = 0;
+// 	while (size-- > 3)
+// 		ft_ordandop(nlst, bstack, olst, pa);
+// 	sort3(nlst, olst);
+// }

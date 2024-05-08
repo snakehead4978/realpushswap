@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lstsizeandcheck.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snek <snek@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 18:51:33 by snek              #+#    #+#             */
-/*   Updated: 2023/12/14 01:06:42 by snek             ###   ########.fr       */
+/*   Updated: 2024/05/08 19:54:39 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,15 @@ int	ft_lstcheck(t_list *lst)
 		lst = lst->next;
 	}
 	return (a);
+}
+
+int	ft_lsinit(t_ls **list, t_list *content, size_t size)
+{
+	*list = malloc(sizeof(t_ls));
+	if (*list)
+		return (1);
+	(*list)->list = content;
+	(*list)->size = size;
 }
 
 int	ft_oneway(t_list *lst)
