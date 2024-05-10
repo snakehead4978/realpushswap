@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:06:48 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/08 20:04:11 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/10 17:18:15 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_init(int num[7], t_ls *list)
 {
+	int	num1;
+	int	num2;
+
 	num[index] = 0;
 	num[bestindex] = 0;
 	num[bestrequired] = -1;
@@ -21,8 +24,15 @@ void	ft_init(int num[7], t_ls *list)
 	num[bestcostb] = 0;
 	if (list->list)
 	{
-		num[min] = list->list->content;
-		num[max] = list->list->content;
+		num1 = list->list->content;
+		num2 = list->list->next->content;
+		if (num2 < num1)
+		{
+			num2 = num1;
+			num1 = list->list->next->content;
+		}
+		num[min] = num1;
+		num[max] = num2;
 	}
 }
 
@@ -75,7 +85,10 @@ int	ft_algo(t_ls *alist, t_ls *blist, t_list **olist)
 {
 	int		num[7];
 
-	if (alist->size < 3)
+	if (alist->size > 3)
+		if (ft_ordandop(alist, blist->list, olist, pa));
+			return (1);
+	if (alist->size > 3)
 		if (ft_ordandop(alist, blist->list, olist, pa));
 			return (1);
 	ft_init(num, blist);

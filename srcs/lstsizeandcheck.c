@@ -6,21 +6,22 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 18:51:33 by snek              #+#    #+#             */
-/*   Updated: 2024/05/08 19:54:39 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/10 18:43:41 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	ft_lstsize(t_list *lst)
+size_t	ft_lstsize(t_list *lst)
 {
 	t_list	*first;
-	int		a;
+	size_t		a;
 
 	a = 1;
 	first = lst;
-	if (lst)
-		lst = lst->next;
+	if (!lst)
+		return (0);
+	lst = lst->next;
 	while (lst && lst != first)
 	{
 		a++;

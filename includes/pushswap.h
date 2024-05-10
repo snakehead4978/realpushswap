@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:09:35 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/08 20:04:31 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/10 18:43:23 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_list
 
 typedef struct s_listandsize
 {
-	int				size;
+	size_t			size;
 	struct s_list	*list;
 }					t_ls;
 
@@ -68,12 +68,12 @@ int					ft_ordandop(t_ls *alist, t_ls *blist, t_list **olist,
 char				**ft_split(char const *s, char c);
 int					ft_instlist(t_list **inst);
 int					ft_lstcheck(t_list *lst);
-int					ft_lsinit(t_ls *list, t_list *content, int size);
-int					ft_algo(t_list *numlist, t_list **olist, int size);
+int					ft_lsinit(t_ls **list, t_list *content, size_t size);
+int					ft_algo(t_ls *lista, t_ls *listb, t_list **olist);
 int					ft_runnum(t_ls *alist, t_ls *blist, t_list **olist,
 						int *nums);
-int					ft_lstsize(t_list *lst);
-int					sort3(t_ls *alst, t_list **olst);
-void					ft_init(int num[7], t_ls *list);
+size_t				ft_lstsize(t_list *lst);
+int					sort3(t_ls *alist, t_ls *blist, t_list **olst);
+void				ft_init(int num[7], t_ls *list);
 
 #endif
