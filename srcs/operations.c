@@ -6,13 +6,13 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:16:12 by snek              #+#    #+#             */
-/*   Updated: 2024/05/11 17:59:43 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/11 19:19:14 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static void	ft_swap(t_ls *lst)
+static void	ft_swap(t_ls *lst, t_ls *lst2)
 {
 	t_list	*tmp;
 	t_list	*node;
@@ -33,6 +33,8 @@ static void	ft_swap(t_ls *lst)
 	tmp->previous = node->previous;
 	node->previous = tmp;
 	lst->list = tmp;
+	if (lst2)
+		ft_swap(lst2, 0);
 }
 
 static void	ft_next(t_ls *lsta, t_ls *lstb)
@@ -72,9 +74,11 @@ static void	ft_push(t_ls *lsta, t_ls *lstb)
 void	ft_operate(t_ls *a, t_ls *b, t_i c)
 {
 	if (c == sa)
-		ft_swap(a);
+		ft_swap(a, 0);
 	else if (c == sb)
-		ft_swap(b);
+		ft_swap(b, 0);
+	else if (c == ss)
+		ft_swap(a, b);
 	else if (c == pa)
 		ft_push(a, b);
 	else if (c == pb)

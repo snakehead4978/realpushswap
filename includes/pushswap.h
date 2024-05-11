@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:09:35 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/11 17:51:10 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/11 20:06:56 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef enum s_i
+typedef enum e_i
 {
 	sa,
 	sb,
@@ -27,12 +27,12 @@ typedef enum s_i
 	ra,
 	rb,
 	rr,
-	rra,
 	rrb,
+	rra,
 	rrr
 }					t_i;
 
-typedef enum s_nums
+typedef enum e_nums
 {
 	index,
 	bestindex,
@@ -79,6 +79,9 @@ int					ft_sort3(t_ls *alist, t_ls *blist, t_list **olst);
 void				ft_init(int num[7], t_ls *list);
 int					ft_returnnum(int num, size_t size);
 int					ft_pushback(t_ls *alist, t_ls *blist, t_list **olist);
+
+// Print
+void				ft_shorten(t_list **olist);
 
 // Free
 int					ft_free(t_ls *alist, t_ls *blist, t_list *olist);

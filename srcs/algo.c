@@ -6,13 +6,13 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:21:41 by marvin            #+#    #+#             */
-/*   Updated: 2024/05/11 17:41:14 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/11 18:11:57 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static int	ft_move_a(t_ls *alist, t_ls *blist, t_list **olist, int *nums)
+static int	ft_movea(t_ls *alist, t_ls *blist, t_list **olist, int *nums)
 {
 	if (nums[bestcosta] > 0)
 	{

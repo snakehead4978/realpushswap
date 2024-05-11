@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:35:26 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/11 18:05:45 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/11 20:13:40 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ static int	ft_instcheck(t_ls *alist, t_ls *blist, char *ord)
 		ft_operate(alist, blist, sa);
 	else if (!ft_strcmp(ord, "sb\n"))
 		ft_operate(alist, blist, sb);
+	else if (!ft_strcmp(ord, "ss\n"))
+		ft_operate(alist, blist, ss);
 	else if (!ft_strcmp(ord, "pa\n"))
 		ft_operate(alist, blist, pa);
 	else if (!ft_strcmp(ord, "pb\n"))
