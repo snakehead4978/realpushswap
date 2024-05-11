@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:06:48 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/11 18:12:24 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/11 21:11:02 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	ft_init(int num[7], t_ls *list)
 
 int	ft_returnnum(int num, size_t size)
 {
-	if (num <= size / 2)
+	if (num <= (int)size / 2)
 		return (num);
 	else
 		return (num - size);
@@ -48,10 +48,9 @@ static int	ft_checkpos(t_ls *alist, t_ls *blist, int *nums)
 {
 	int		num;
 	int		sum;
-	int		i;
 	t_list	*bnode;
 
-	i = 0;
+	sum = 0;
 	bnode = blist->list;
 	num = alist->list->content;
 	while (!(bnode->content < num && bnode->previous->content > num)
@@ -63,7 +62,7 @@ static int	ft_checkpos(t_ls *alist, t_ls *blist, int *nums)
 	return (ft_returnnum(sum, blist->size));
 }
 
-static void	ft_setnum(int *num, t_ls *alist, t_ls *blist, int costb)
+static void	ft_setnum(int *num, t_ls *alist, int costb)
 {
 	int		costa;
 	long	finalcost;
@@ -86,20 +85,20 @@ int	ft_algo(t_ls *alist, t_ls *blist, t_list **olist)
 	int	num[7];
 
 	if (alist->size > 3)
-		if (ft_ordandop(alist, blist->list, olist, pa))
+		if (ft_ordandop(alist, blist, olist, pa))
 			return (1);
 	if (alist->size > 3)
-		if (ft_ordandop(alist, blist->list, olist, pa))
+		if (ft_ordandop(alist, blist, olist, pa))
 			return (1);
 	ft_init(num, blist);
 	while (alist->size > 3)
 	{
-		while (num[index] < alist->size)
+		while (num[index] < (int)alist->size)
 		{
-			ft_setnum(num, alist, blist, ft_checkpos(alist, blist, num));
+			ft_setnum(num, alist, ft_checkpos(alist, blist, num));
 			num[index]++;
 		}
-		if (ft_runnum(num, alist, blist, olist))
+		if (ft_runnum(alist, blist, olist, num))
 			return (1);
 	}
 	return (0);

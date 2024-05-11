@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 18:51:33 by snek              #+#    #+#             */
-/*   Updated: 2024/05/11 18:00:14 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/11 21:33:49 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_lstsize(t_list *lst)
 	while (lst && lst != first)
 	{
 		a++;
-		lst->next;
+		lst = lst->next;
 	}
 	return (a);
 }
@@ -33,7 +33,7 @@ size_t	ft_lstsize(t_list *lst)
 int	ft_lsinit(t_ls **list, t_list *content, size_t size)
 {
 	*list = malloc(sizeof(t_ls));
-	if (*list)
+	if (!*list)
 		return (1);
 	(*list)->list = content;
 	(*list)->size = size;

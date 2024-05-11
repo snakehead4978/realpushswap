@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:35:26 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/11 20:13:40 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/11 21:22:51 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,17 +99,19 @@ int	main(int ac, char **av)
 	t_ls	*alist;
 
 	numlist = 0;
+	if (ac == 1)
+		return (0);
 	if (ft_checkandstock(&numlist, ac, av))
-		return (1);
+		return (ft_psfree(0, 0, numlist));
 	if (ft_lsinit(&blist, 0, 0))
 		return (ft_psfree(0, 0, numlist));
 	if (ft_lsinit(&alist, numlist, ft_lstsize(numlist)))
 		return (ft_psfree(blist, 0, numlist));
 	if (ft_instlist(alist, blist))
 		return (ft_psfree(alist, blist, 0));
-	if (ft_lstcheck(alist) && !blist)
-		write(stdout, "OK\n", 4);
+	if (ft_lstcheck(alist->list) && !blist)
+		write(1, "OK\n", 4);
 	else
-		write(stdout, "KO\n", 4);
+		write(1, "KO\n", 4);
 	return (ft_free(alist, blist, 0));
 }

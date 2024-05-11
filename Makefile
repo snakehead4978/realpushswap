@@ -1,9 +1,8 @@
-
 NAME = push_swap
 
 BONUS = checker
 
-SRC_C = 	algo.c \
+SRC_C = algo.c \
 		algohelper.c \
 		arguments.c \
 		freepushswap.c \
@@ -13,40 +12,44 @@ SRC_C = 	algo.c \
 		operations.c \
 		orders.c \
 		pushback.c \
-		shorten. \
+		shorten.c \
 		sort3.c
 
-SRC =	pushswap.c 
+SRC = pushswap.c 
 
 SRC_B = checker_bonus.c
 
 INC = -Iincludes
 
-OBJ_C = $(SRC_C:.c=.o)
+SRCD = srcs/
 
-OBJ = $(SRC:.c=.o)
+OBJ_C = $(addprefix $(SRCD), $(SRC_C:.c=.o))
 
-OBJ_B = $(SRC_B:.c=.o)
+OBJ = $(addprefix $(SRCD), $(SRC:.c=.o))
+
+OBJ_B = $(addprefix $(SRCD), $(SRC_B:.c=.o))
 
 CC = cc
 
-FLAGS = -Wall -Werror -Wexta
-	cc -Wall -Werror -Wextra $(INC)
+CFLAGS = -Wall -Werror -Wextra -g3
 
-$(NAME) : $(OBJ) $(OBJ_C)
-		$(CC) $(FLAGS) $(INC) -o $@ $^
+.c.o :
+	$(CC) $(CFLAGS) $(INC) -c -o $@ $^
+
+$(NAME): $(OBJ_C) $(OBJ)
+	$(CC) $(FLAGS) $(INC) -o $@ $^
 
 all: $(NAME) $(BONUS)
 
-$(BONUS) : $(OBJ_B) $(OBJ_C)
-		$(CC) $(FLAGS) $(INC) -o $@ $^
+$(BONUS): $(OBJ_C) $(OBJ_B)
+	$(CC) $(FLAGS) $(INC) -o $@ $^
 
-clean :
+clean:
 	rm -rf $(OBJ) $(OBJ_B) $(OBJ_C)
 
-fclean : clean
+fclean: clean
 	rm -rf $(NAME) $(BONUS)
 
-re : fclean all
+re: fclean all
 
 .PHONY: all clean fclean re

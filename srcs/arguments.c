@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:38:05 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/11 18:00:06 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/11 21:31:37 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,21 @@ static int	ft_psatoi(int *num, const char *nptr)
 		res = res * 10 + nptr[i++] - '0';
 	res = res * sign;
 	if (res < -2147483648 || res > 214748367 || nptr[i])
-		return (0);
+		return (1);
 	*num = (int)res;
-	return (1);
+	return (0);
 }
 
-static int	ft_psadd_back(t_list **lst, t_list *new)
+static int	ft_psaddback(t_list **lst, t_list *new)
 {
 	t_list	*node;
 
 	node = (*lst);
+	if (!node)
+	{
+		ft_lstadd_back(lst, new);
+		return (0);
+	}
 	while (new->content != node->content)
 	{
 		if (node->next == *lst)
@@ -87,10 +92,8 @@ static int	ft_arguments(t_list **numlst, char **av)
 
 int	ft_checkandstock(t_list **numlst, int ac, char **av)
 {
-	char	*splitav;
+	char	**splitav;
 
-	if (ac <= 1)
-		return (0);
 	if (ac == 2)
 	{
 		splitav = ft_split(av[1], ' ');

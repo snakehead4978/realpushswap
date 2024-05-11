@@ -64,4 +64,5 @@ int	ft_findmax(t_list **lst)
 			res = tmp->content;
 		tmp = tmp->next;
 	}
+	return (res);
 }

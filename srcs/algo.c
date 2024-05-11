@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:21:41 by marvin            #+#    #+#             */
-/*   Updated: 2024/05/11 18:11:57 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/11 21:05:59 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,15 @@ int	ft_runnum(t_ls *alist, t_ls *blist, t_list **olist, int *nums)
 	while (nums[bestcosta] * nums[bestcostb] != 0)
 	{
 		if (nums[bestcosta])
+		{
 			if (ft_movea(alist, blist, olist, nums))
 				return (1);
+		}
 		else
+		{
 			if (ft_moveb(alist, blist, olist, nums))
 				return (1);
+		}
 	}
 	if (ft_ordandop(alist, blist, olist, pa))
 		return (1);

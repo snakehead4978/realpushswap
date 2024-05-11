@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:09:35 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/11 20:06:56 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/11 21:06:54 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ int					ft_algo(t_ls *lista, t_ls *listb, t_list **olist);
 int					ft_runnum(t_ls *alist, t_ls *blist, t_list **olist,
 						int *nums);
 int					ft_sort3(t_ls *alist, t_ls *blist, t_list **olst);
-void				ft_init(int num[7], t_ls *list);
 int					ft_returnnum(int num, size_t size);
 int					ft_pushback(t_ls *alist, t_ls *blist, t_list **olist);
 
