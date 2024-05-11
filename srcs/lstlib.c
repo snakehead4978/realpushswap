@@ -17,8 +17,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	if (!*lst)
 	{
 		*lst = new;
-		new->next = 0;
-		new->previous = 0;
+		new->next = new;
+		new->previous = new;
 	}
 	else
 	{
@@ -50,33 +50,6 @@ t_list	*ft_lstnew(int content)
 	return (new);
 }
 
-static void	ft_cl(t_list *lst)
-{
-	if (lst->next != 0)
-		ft_cl(lst->next);
-	free(lst);
-}
-
-void	ft_lstclear(t_list **lst)
-{
-	if (!*lst)
-		return ;
-	if ((*lst)->previous)
-		(*lst)->previous->next = 0;
-	ft_cl(*lst);
-	*lst = 0;
-}
-
-int	ft_psfree(void *a, void *b, t_list **lst)
-{
-	free(a);
-	a = 0;
-	free(b);
-	b = 0;
-	ft_lstclear(lst);
-	return (1);
-}
-
 int	ft_findmax(t_list **lst)
 {
 	int		res;
@@ -91,18 +64,4 @@ int	ft_findmax(t_list **lst)
 			res = tmp->content;
 		tmp = tmp->next;
 	}
-}
-
-int	ft_lstcheck(t_list *lst)
-{
-	t_list	*first;
-
-	first = lst;
-	while (lst && lst->next != first)
-	{
-		if (lst->content > lst->next->content)
-			return (0);
-		lst = lst->next;
-	}
-	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:39:20 by snek              #+#    #+#             */
-/*   Updated: 2024/05/07 19:22:00 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/11 16:42:12 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_addorder(t_list **node, t_i i)
 int	ft_ordandop(t_ls *alist, t_ls *blist, t_list **olist, t_i i)
 {
 	if (ft_addorder(olist, i))
-		return (0);
+		return (1);
 	ft_operate(alist, blist, i);
-	return (1);
+	return (0);
 }

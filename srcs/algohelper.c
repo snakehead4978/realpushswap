@@ -6,13 +6,13 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:06:48 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/10 17:18:15 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/11 18:02:14 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	ft_init(int num[7], t_ls *list)
+static void	ft_init(int num[7], t_ls *list)
 {
 	int	num1;
 	int	num2;
@@ -36,7 +36,7 @@ void	ft_init(int num[7], t_ls *list)
 	}
 }
 
-static int	ft_returnnum(int num, size_t size)
+int	ft_returnnum(int num, size_t size)
 {
 	if (num <= size / 2)
 		return (num);
@@ -83,13 +83,13 @@ static void	ft_setnum(int *num, t_ls *alist, t_ls *blist, int costb)
 
 int	ft_algo(t_ls *alist, t_ls *blist, t_list **olist)
 {
-	int		num[7];
+	int	num[7];
 
 	if (alist->size > 3)
-		if (ft_ordandop(alist, blist->list, olist, pa));
+		if (ft_ordandop(alist, blist->list, olist, pa))
 			return (1);
 	if (alist->size > 3)
-		if (ft_ordandop(alist, blist->list, olist, pa));
+		if (ft_ordandop(alist, blist->list, olist, pa))
 			return (1);
 	ft_init(num, blist);
 	while (alist->size > 3)
@@ -99,7 +99,7 @@ int	ft_algo(t_ls *alist, t_ls *blist, t_list **olist)
 			ft_setnum(num, alist, blist, ft_checkpos(alist, blist, num));
 			num[index]++;
 		}
-		if (!ft_runnum(num, alist, blist, olist))
+		if (ft_runnum(num, alist, blist, olist))
 			return (1);
 	}
 	return (0);

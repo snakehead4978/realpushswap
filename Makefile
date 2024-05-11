@@ -1,6 +1,4 @@
 
-
-
 libft = libft.a
 
 
@@ -10,12 +8,7 @@ INC = -Iincludes -Ilibft/includes
 .c.o : 
 	cc -Wall -Werror -Wextra $(INC) -c -
 
-
-build :
-	$(MAKE) -C libft/ 
-
-
-$(NAME) : build
+$(NAME) :
 		ar rcs ./libft/libft.a $@ $^
 
 clean :

@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:16:12 by snek              #+#    #+#             */
-/*   Updated: 2024/05/08 19:58:45 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/11 17:59:43 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,18 @@ static void	ft_swap(t_ls *lst)
 	lst->list = tmp;
 }
 
-static void	ft_next(t_ls *lst)
+static void	ft_next(t_ls *lsta, t_ls *lstb)
 {
-	lst->list = lst->list->next;
+	if (lstb)
+		lstb->list = lstb->list->next;
+	lsta->list = lsta->list->next;
 }
 
-static void	ft_prev(t_ls *lst)
+static void	ft_prev(t_ls *lsta, t_ls *lstb)
 {
-	lst->list = lst->list->previous;
+	if (lstb)
+		lstb->list = lstb->list->previous;
+	lsta->list = lsta->list->previous;
 }
 
 static void	ft_push(t_ls *lsta, t_ls *lstb)
@@ -71,22 +75,20 @@ void	ft_operate(t_ls *a, t_ls *b, t_i c)
 		ft_swap(a);
 	else if (c == sb)
 		ft_swap(b);
-	else if (c == ss)
-		ft_swap(a), ft_swap(b);
 	else if (c == pa)
 		ft_push(a, b);
 	else if (c == pb)
 		ft_push(b, a);
 	else if (c == ra)
-		ft_next(a);
+		ft_next(a, 0);
 	else if (c == rb)
-		ft_next(b);
+		ft_next(b, 0);
 	else if (c == rr)
-		ft_next(a), ft_next(b);
+		ft_next(a, b);
 	else if (c == rra)
-		ft_prev(a);
+		ft_prev(a, 0);
 	else if (c == rrb)
-		ft_prev(b);
+		ft_prev(b, 0);
 	else if (c == rrr)
-		ft_prev(a), ft_prev(b);
+		ft_prev(a, b);
 }

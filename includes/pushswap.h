@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:09:35 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/10 18:43:23 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/11 17:51:10 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,22 +58,30 @@ typedef struct s_listandsize
 
 void				ft_lstadd_back(t_list **lst, t_list *new);
 t_list				*ft_lstnew(int content);
-void				ft_lstclear(t_list **lst);
-int					ft_psfree(void *a, void *b, t_list **lst);
+size_t				ft_lstsize(t_list *lst);
+
+// arguments parser
+int					ft_lsinit(t_ls **list, t_list *content, size_t size);
 int					ft_checkandstock(t_list **numlst, int ac, char **av);
+char				**ft_split(char const *s, char c);
+
+// Adding Operating and Stocking
 int					ft_addorder(t_list **node, t_i i);
 void				ft_operate(t_ls *a, t_ls *b, t_i c);
 int					ft_ordandop(t_ls *alist, t_ls *blist, t_list **olist,
 						t_i i);
-char				**ft_split(char const *s, char c);
-int					ft_instlist(t_list **inst);
-int					ft_lstcheck(t_list *lst);
-int					ft_lsinit(t_ls **list, t_list *content, size_t size);
+
+// Algorithm
 int					ft_algo(t_ls *lista, t_ls *listb, t_list **olist);
 int					ft_runnum(t_ls *alist, t_ls *blist, t_list **olist,
 						int *nums);
-size_t				ft_lstsize(t_list *lst);
-int					sort3(t_ls *alist, t_ls *blist, t_list **olst);
+int					ft_sort3(t_ls *alist, t_ls *blist, t_list **olst);
 void				ft_init(int num[7], t_ls *list);
+int					ft_returnnum(int num, size_t size);
+int					ft_pushback(t_ls *alist, t_ls *blist, t_list **olist);
+
+// Free
+int					ft_free(t_ls *alist, t_ls *blist, t_list *olist);
+int					ft_psfree(t_ls *alist, t_ls *blist, t_list *olist);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:36:49 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/10 17:18:55 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/11 18:03:30 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ int	main(int ac, char **av)
 	if (ft_lsinit(&alist, numlist, ft_lstsize(numlist)))
 		return (ft_psfree(blist, 0, 0));
 	if (ft_algo(alist, blist, &olist))
-		return (ft_psfree(alist, blist, olist))
-	ft_sort3();
-
-
-	return (0);
+		return (ft_psfree(alist, blist, olist));
+	if (ft_sort3(alist, blist, olist))
+		return (ft_psfree(alist, blist, olist));
+	if (blist->list && ft_pushback(alist, blist, olist))
+		return (ft_psfree(alist, blist, olist));
+	return (ft_free(alist, blist, olist));
 }
