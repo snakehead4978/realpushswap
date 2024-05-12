@@ -12,6 +12,24 @@
 
 #include "pushswap.h"
 
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (!*lst)
+	{
+		*lst = new;
+		new->next = new;
+		new->previous = new;
+	}
+	else
+	{
+		(*lst)->previous->next = new;
+		new->previous = (*lst)->previous;
+		(*lst)->previous = new;
+		new->next = (*lst);
+		*lst = new;
+	}
+}
+
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	if (!*lst)
@@ -22,19 +40,24 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 	else
 	{
-		if ((*lst)->previous)
-		{
-			(*lst)->previous->next = new;
-			new->previous = (*lst)->previous;
-		}
-		else
-		{
-			(*lst)->next = new;
-			new->previous = *lst;
-		}
-		new->next = *lst;
+		(*lst)->previous->next = new;
+		new->previous = (*lst)->previous;
 		(*lst)->previous = new;
+		new->next = (*lst);
 	}
+}
+
+void	ft_lstremove(t_list **lst, t_list *node)
+{
+	if (!*lst)
+		return ;
+	node->previous->next = node->next;
+	node->next->previous = node->previous;
+	if (*lst == node)
+		*lst = node->next;
+	if (node->next == node)
+		*lst = 0;
+	free(node);
 }
 
 t_list	*ft_lstnew(int content)

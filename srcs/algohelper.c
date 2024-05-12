@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:06:48 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/11 21:11:02 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/12 17:32:38 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int	ft_checkpos(t_ls *alist, t_ls *blist, int *nums)
 	bnode = blist->list;
 	num = alist->list->content;
 	while (!(bnode->content < num && bnode->previous->content > num)
-		&& !((num > nums[max] || num < nums[min]) && bnode->content == max))
+		&& !((num > nums[max] || num < nums[min]) && bnode->content == nums[max]))
 	{
 		sum++;
 		bnode = bnode->next;

@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 16:07:20 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/11 18:07:14 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/12 17:05:11 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ static int	ft_rightorder(t_ls *alist)
 			index = currentindex;
 		}
 		node = node->next;
-		index++;
+		currentindex++;
 	}
 	return (ft_returnnum(index, alist->size));
 }

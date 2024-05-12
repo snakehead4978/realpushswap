@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:07:36 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/11 16:28:19 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/12 16:06:14 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static int	ft_findcase(t_list *node)
 	a = node->content;
 	b = node->next->content;
 	c = node->previous->content;
+	if (a < b && b < c)
+		return (0);
 	if (a < b && b > c && a < c)
 		return (1);
 	else if (a < b)
@@ -48,6 +50,8 @@ int	ft_sort3(t_ls *alist, t_ls *blist, t_list **olist)
 				blist, olist, rra));
 	else if (a == 4)
 		return (ft_ordandop(alist, blist, olist, sa));
-	else
+	else if (a == 5)
 		return (ft_ordandop(alist, blist, olist, rra));
+	else
+		return (0);
 }

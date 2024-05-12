@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:09:35 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/11 21:06:54 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/12 17:13:19 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ typedef struct s_listandsize
 	struct s_list	*list;
 }					t_ls;
 
+// List commands
 void				ft_lstadd_back(t_list **lst, t_list *new);
+void				ft_lstadd_front(t_list **lst, t_list *new);
 t_list				*ft_lstnew(int content);
 size_t				ft_lstsize(t_list *lst);
 
@@ -80,6 +82,7 @@ int					ft_returnnum(int num, size_t size);
 int					ft_pushback(t_ls *alist, t_ls *blist, t_list **olist);
 
 // Print
+void				ft_lstremove(t_list **lst, t_list *node);
 void				ft_shorten(t_list **olist);
 
 // Free

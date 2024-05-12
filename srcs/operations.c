@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:16:12 by snek              #+#    #+#             */
-/*   Updated: 2024/05/11 19:19:14 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/12 17:17:47 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	ft_push(t_ls *lsta, t_ls *lstb)
 		lsta->list = 0;
 	lsta->size--;
 	lstb->size++;
-	ft_lstadd_back(&lstb->list, tmp);
+	ft_lstadd_front(&lstb->list, tmp);
 }
 
 void	ft_operate(t_ls *a, t_ls *b, t_i c)
