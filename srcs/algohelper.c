@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:06:48 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/12 17:32:38 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/13 18:12:47 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,28 +36,47 @@ static void	ft_init(int num[7], t_ls *list)
 	}
 }
 
-int	ft_returnnum(int num, size_t size)
+static int	ft_cost(int costa, int costb)
 {
-	if (num <= (int)size / 2)
-		return (num);
+	if (costa * costb > 0)
+	{
+		if (costa < 0)
+		{
+			if (costa < costb)
+				return (-costa);
+			return (-costb);
+		}
+		if (costa < costb)
+			return (costb);
+		return (costa);
+	}
 	else
-		return (num - size);
+	{
+		if (costa - costb < 0)
+			return (-(costa - costb));
+		return (costa - costb);
+	}
 }
 
 static int	ft_checkpos(t_ls *alist, t_ls *blist, int *nums)
 {
 	int		num;
 	int		sum;
-	t_list	*bnode;
+	t_list	*node;
 
 	sum = 0;
-	bnode = blist->list;
-	num = alist->list->content;
-	while (!(bnode->content < num && bnode->previous->content > num)
-		&& !((num > nums[max] || num < nums[min]) && bnode->content == nums[max]))
+	node = alist->list;
+	while (sum++ < nums[index])
+		node = node->next;
+	num = node->content;
+	node = blist->list;
+	sum = 0;
+	while (!(node->content < num && node->previous->content > num)
+		&& !((num > nums[max] || num < nums[min])
+			&& node->content == nums[max]))
 	{
 		sum++;
-		bnode = bnode->next;
+		node = node->next;
 	}
 	return (ft_returnnum(sum, blist->size));
 }
@@ -68,9 +87,7 @@ static void	ft_setnum(int *num, t_ls *alist, int costb)
 	long	finalcost;
 
 	costa = ft_returnnum(num[index], alist->size);
-	finalcost = (long)costa + ((long)costb * -1);
-	if (finalcost < 0)
-		finalcost = finalcost * -1;
+	finalcost = ft_cost(costa, costb);
 	if (finalcost < num[bestrequired] || num[bestrequired] == -1)
 	{
 		num[bestrequired] = finalcost;

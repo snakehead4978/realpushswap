@@ -73,19 +73,26 @@ t_list	*ft_lstnew(int content)
 	return (new);
 }
 
-int	ft_findmax(t_list **lst)
+void	ft_findminmax(t_list *lst, int num[2])
 {
-	int		res;
+	int		min;
+	int		max;
 	t_list	*tmp;
 
-	tmp = *lst;
-	res = tmp->content;
+	if (!lst)
+		return ;
+	tmp = lst;
+	min = tmp->content;
+	max = min;
 	tmp = tmp->next;
-	while (tmp != *lst)
+	while (tmp != lst)
 	{
-		if (tmp->content > res)
-			res = tmp->content;
+		if (tmp->content > max)
+			max = tmp->content;
+		else if (tmp->content < min)
+			min = tmp->content;
 		tmp = tmp->next;
 	}
-	return (res);
+	num[0] = min;
+	num[1] = max;
 }

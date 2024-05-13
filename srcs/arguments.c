@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:38:05 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/12 17:47:54 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/12 21:37:14 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static int	ft_psatoi(int *num, const char *nptr)
 		sign = -1;
 	else
 		i--;
+	if (nptr[i] < '0' || nptr[i] > '9')
+		return (1);
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 		res = res * 10 + nptr[i++] - '0';
 	res = res * sign;
@@ -75,6 +77,8 @@ static int	ft_arguments(t_list **numlst, char **av)
 	t_list	*new;
 
 	i = 0;
+	if (!*av)
+		return (1);
 	while (av[i])
 	{
 		num = 0;

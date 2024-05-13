@@ -6,11 +6,19 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:21:41 by marvin            #+#    #+#             */
-/*   Updated: 2024/05/11 21:05:59 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:21:05 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
+int	ft_returnnum(int num, size_t size)
+{
+	if (num <= (int)size / 2)
+		return (num);
+	else
+		return (num - size);
+}
 
 static int	ft_movea(t_ls *alist, t_ls *blist, t_list **olist, int *nums)
 {
@@ -46,7 +54,7 @@ static int	ft_moveb(t_ls *alist, t_ls *blist, t_list **olist, int *nums)
 
 int	ft_runnum(t_ls *alist, t_ls *blist, t_list **olist, int *nums)
 {
-	while (nums[bestcosta] * nums[bestcostb] != 0)
+	while (nums[bestcosta] != 0 || nums[bestcostb] != 0)
 	{
 		if (nums[bestcosta])
 		{

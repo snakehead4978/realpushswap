@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 16:32:49 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/12 17:50:17 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/12 19:46:42 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_psfree(t_ls *alist, t_ls *blist, t_list *olist)
 		free(blist);
 	}
 	ft_lstclear(&olist);
-	write(2, "Error\n", 7);
+	write(2, "Error\n", 6);
 	return (1);
 }
 

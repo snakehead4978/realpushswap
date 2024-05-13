@@ -6,7 +6,7 @@
 /*   By: jla-chon <jla-chon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:09:35 by jla-chon          #+#    #+#             */
-/*   Updated: 2024/05/12 17:13:19 by jla-chon         ###   ########.fr       */
+/*   Updated: 2024/05/12 20:58:07 by jla-chon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 t_list				*ft_lstnew(int content);
 size_t				ft_lstsize(t_list *lst);
+void				ft_findminmax(t_list *lst, int num[2]);
 
 // arguments parser
 int					ft_lsinit(t_ls **list, t_list *content, size_t size);
